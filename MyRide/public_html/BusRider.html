@@ -19,7 +19,7 @@ and open the template in the editor.
     <body>
         <!--the logo and navigation bar-->
         <div class="navbar-fixed">
-            <nav class="deep-orange lighten-2">
+            <nav class=" light-blue accent-4">
                 <div class="nav-wrapper container">
                     <a href="#!" class="brand-logo">MyRide Logo</a>
 
@@ -37,7 +37,7 @@ and open the template in the editor.
                     <a class="image" href="nearestStop.html">
 
                         <div class="col s12 ">
-                            <div class="card deep-orange darken-1">
+                            <div class="card light-blue accent-2">
                                 <div class="card-content white-text"> 
                                     <span class="card-title">NearBy</span>
                                     <p>Find nearest Bus stop</p>
@@ -55,30 +55,10 @@ and open the template in the editor.
                         <a class="image" href="searchRoutesStops.html">
 
                             <div class="col s12 ">
-                                <div class="card deep-orange darken-1">
+                                <div class="card light-blue accent-2">
                                     <div class="card-content white-text"> 
                                         <span class="card-title">Search</span>
                                         <p>Search for the bus stops and routes</p>
-                                    </div> 
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-            </div>
-
-            <!--find favourites-->
-            <div id="favourites">
-                <div id="nearBy">
-                    <div class="row">
-                        <a class="image" href="#">
-
-                            <div class="col s12 ">
-                                <div class="card  deep-orange darken-1">
-                                    <div class="card-content white-text"> 
-                                        <span class="card-title">Favorites</span>
-                                        <p>Quick Access</p>
                                     </div> 
                                 </div>
                             </div>
@@ -95,10 +75,14 @@ and open the template in the editor.
                         <a class="image" href="#">
 
                             <div class="col s12 ">
-                                <div class="card deep-orange darken-1">
+                                <div class="card light-blue accent-2">
                                     <div class="card-content white-text"> 
-                                        <span class="card-title">Report</span>
-                                        <p>Observations and problems</p>
+                                        <span class="card-title">Traffic and Bus Update</span>
+                                        <div>
+                                            <a class="waves-effect waves-light btn modal-trigger" href="#traffic">Traffic Update</a>
+                                            <a class="waves-effect waves-light btn modal-trigger" href="#busStatus">Bus Status Update</a>
+                                        </div>
+
                                     </div> 
                                 </div>
                             </div>
@@ -108,20 +92,68 @@ and open the template in the editor.
             </div>
         </div>
 
-        <!--footer-->
-        <footer class="page-footer deep-orange lighten-2">
-            
+
+        <!-- Modal Structure traffic update-->
+        <div id="traffic" class="modal">
+            <div class="modal-content">
+                <h4>Traffic Update</h4>
+                <div class="row">
+                    <form class="col s12">
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <i class="material-icons prefix">mode_edit</i>
+                                <textarea id="textarea1BusStatus" class="materialize-textarea"></textarea>
+                                <label for="textarea1">Bus Status Update</label>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Submit</a>
+            </div>
+        </div>
+
+        <!-- Modal Structure bus status update-->
+        <div id="busStatus" class="modal">
+            <div class="modal-content">
+                <h4>Bus Status Update</h4>
+                <div class="row">
+                    <form class="col s12">
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <i class="material-icons prefix">mode_edit</i>
+                                <textarea id="textarea1BusStatus" class="materialize-textarea"></textarea>
+                                <label for="textarea1">Bus Status Update</label>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Submit</a>
+            </div>
+        </div>
+        
+
+        <div id="mobileShow">
             <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
                 <a class="btn-floating btn-large red">
                     <i class="large material-icons">info_outline</i>
                 </a>
                 <ul>
-                    <li><a class="btn-floating red"><i class="material-icons">insert_comment</i>Traffic Status</a></li>
-                    <li><a class="btn-floating yellow darken-1"><i class="material-icons">directions_bus</i>Bus Status</a></li>
-                    <li><a class="btn-floating green"><i class="material-icons">navigation</i>Routes</a></li>
-                    <li><a class="btn-floating blue"><i class="material-icons">create</i></a>Trace Bus</li>
+                    <li><a class="btn-floating red modal-trigger tooltipped " data-position="left" data-tooltip="Traffic Status" href="#traffic"><i class="material-icons ">insert_comment</i></a></li>
+                    <li><a class="btn-floating yellow darken-1 modal-trigger tooltipped" data-position="left" data-tooltip="Bus Status"><i class="material-icons">directions_bus</i></a></li>
+                    <li><a class="btn-floating green modal-trigger tooltipped" data-position="left" href="#busStatus" data-tooltip="Routes"><i class="material-icons">navigation</i></a></li>
+                    <li><a class="btn-floating blue tooltipped" data-position="left" data-tooltip="Trace Bus"><i class="material-icons">create</i></a></li>
                 </ul>
             </div>
+        </div>
+
+
+        <!--footer-->
+        <footer class="page-footer deep-orange lighten-2">
             <div class="footer-copyright">
                 <div class="container">
                     Made by <a class="orange-text text-lighten-3" >Migaliza</a>

@@ -6,6 +6,7 @@
  * Made By MaterializeCSS.com
  */
 
+
 .icon-block {
   padding: 0 15px;
 }
@@ -24,7 +25,7 @@
     display: inline;
 }
 
-#extraInfo li a{
+#extraInfo {
     display: inline-block;
     padding: 8px;
     color: #111;
@@ -34,4 +35,12 @@
 
 #extraInfo li a:hover {
     background-color: #111;
+}
+
+
+@media(min-width:767px) {
+  #map {
+    height: 400px;
+    margin-top: 250px;
+  }
 }
