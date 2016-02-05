@@ -25,16 +25,26 @@
     display: inline;
 }
 
-#extraInfo {
+#extraInfo li{
     display: inline-block;
-    padding: 8px;
-    color: #111;
-    text-align: center;
-    padding: 14px 16px;
+    padding: 10px;
+   
+
+}
+#MapCanvas{
+    margin: 0 auto;
+    height: 70%;
+    margin-top: 5px;
 }
 
+#page-footer{
+    height: 30px;
+}
 #extraInfo li a:hover {
     background-color: #111;
+}
+html, body {
+   height: 100%;
 }
 
 
