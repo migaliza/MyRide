@@ -34,12 +34,13 @@
 #MapCanvas{
     margin: 0 auto;
     height: 70%;
-    margin-top: 5px;
+    margin-top: 0.5%;
+    margin-bottom: 0.5%;
 }
-
-#page-footer{
-    height: 30px;
-}
+/*
+#footerSection{
+    height: 20px;
+}*/
 #extraInfo li a:hover {
     background-color: #111;
 }
@@ -47,10 +48,10 @@ html, body {
    height: 100%;
 }
 
-
+/*
 @media(min-width:767px) {
-  #map {
+  #MapCanvas {
     height: 400px;
     margin-top: 250px;
   }
-}
+}*/
