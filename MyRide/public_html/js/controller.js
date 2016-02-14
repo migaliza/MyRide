@@ -14,18 +14,7 @@ $( document ).ready(function(){
     $('.modal-trigger').leanModal();
   });
   
-  $(document).ready(function(){
-      initMap();
-  })
  
- function initMap() {
-  // Create a map object and specify the DOM element for display.
-  var map = new google.maps.Map(document.getElementById('MapCanvas'), {
-    center: {lat: 5.7500, lng: 0.0000},
-    scrollwheel: false,
-    zoom: 8
-  });
-}
   /*
 function initMap() {
   var accra = {lat: 5.7500, lng: 0.0000};

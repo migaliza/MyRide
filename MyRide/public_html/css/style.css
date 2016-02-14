@@ -61,7 +61,7 @@
 }
 #MapCanvas{
     margin: 0 auto;
-    height: 70%;
+    height: 85%;
     margin-top: 0.5%;
     margin-bottom: 0.5%;
 }
@@ -76,10 +76,17 @@ html, body {
    height: 100%;
 }
 
-/*
-@media(min-width:767px) {
-  #MapCanvas {
-    height: 400px;
-    margin-top: 250px;
-  }
-}*/
+#findPlaces {
+  background-color: #fff;
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: 300;
+  margin-left: 12px;
+  padding: 0 11px 0 13px;
+  text-overflow: ellipsis;
+  width: 300px;
+}
+
+#findPlaces:focus {
+  border-color: #4d90fe;
+}

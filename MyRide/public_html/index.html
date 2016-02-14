@@ -29,6 +29,7 @@ and open the template in the editor.
                         <li><a href="BusRider.html">Bus Rider</a></li>
                         <li><a href="#">Driver</a></li>
                         <li><a href="#">Management</a></li>
+                        <li><a class=" modal-trigger" href="#search"><i class="material-icons left">search</i>Search Routes</a></li>
 
                     </ul>
                     <div id="nav-mobile" class="side-nav">
@@ -37,6 +38,7 @@ and open the template in the editor.
                             <li><a href="BusRider.html">Bus Rider</a></li>
                             <li><a href="#">Driver</a></li>
                             <li><a href="#">Management</a></li>  
+                            <li><a  class=" modal-trigger" href="#search"><i class="material-icons left">search</i>Search Routes</a></li>
                         </ul>
                     </div>
 
@@ -44,47 +46,20 @@ and open the template in the editor.
                 </div>
             </nav>
         </div>
-        <!--search for routes-->
-        <nav class="gamber darken-2 flat hide-on-med-and-down">
-            <div class="nav-wrapper container">
-                <form>
-                    <div class="input-field">
-                        <input placeholder="Search for Routes" id="search" type="search" required="" >
-                        <label for="search" ><i class="mdi-action-search"></i></label>
-                        <i class="mdi-navigation-close"></i>
-                    </div>
-                </form>
-            </div>
-        </nav>
 
-                <div id="MapCanvas" class="center" >
-
-                </div>
-               
-
-
-
-
-        <footer class="page-footer deep-orange lighten-2" >
-            <div class=" row container" id="footerSection">
-                <div class="col l12 left">
-                    <ul id="extraInfo" class="center">
-                            <li><a class="grey-text text-lighten-3"  href="#!"><i class="Tiny material-icons md-light">insert_comment</i>Traffic Status</a></li>
-                            <li><a class="grey-text text-lighten-3"  href="#!"><i class="Tiny material-icons md-light">directions_bus</i>Bus Status</a></li>
-                            <li><a class="grey-text text-lighten-3"  href="#!"><i class="Tiny material-icons md-light">navigation</i>Routes</a></li>
-                            <li><a class="grey-text text-lighten-3"  href="#!"><i class="Tiny material-icons md-light">create</i>Trace Bus</a></li>
-                            <li>Made by <a class="orange-text text-lighten-3" >Migaliza</a></li>    
-                    </ul>
-                </div>
-
-            </div>
-        </footer>
-
-
+        
+        <!--search box-->
+            <input id="findPlaces" class="controls" type="text" placeholder="Search Places">
+            <div id="MapCanvas" class="center" > </div>
+            
         <!--  Scripts-->
-        <script type='text/javascript' src='https://maps.googleapis.com/maps/api/js?v=3.exp'></script>
+       <!--<script type='text/javascript' src='https://maps.googleapis.com/maps/api/js?v=3.exp'></script>-->
+        <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"></script>
         <script src="js/jquery-2.1.4.min.js"></script>
         <script src="js/materialize.js"></script>
         <script src="js/controller.js"></script>
+        <script src="js/GMap.js"></script>
     </body>
 </html>
+
+AIzaSyAnlZA5fZatiV_US10ZXmG-DwLg3fcmCXQ

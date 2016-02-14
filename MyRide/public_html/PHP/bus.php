@@ -10,6 +10,32 @@ include("adb.php");
 
 class bus extends adb{
     
-    function 
-}
+    function current_Location(){
+        
+    }
+    
+    
+    function number_people()
+    {
+        
+    }
+    
+    function search_bus(){
+        
+    }
+    
+    function capacity_of_bus(){
+        
+    }
+    
+    function add_new_bus(){
+        
+    }
+    
+    function update_a_bus(){
+        
+    }
+    
+  
+}  
 ?>
