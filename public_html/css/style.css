@@ -5,6 +5,35 @@
  *
  * Made By MaterializeCSS.com
  */
+.Hbutton{
+    color:#fff59d;
+    text-decoration: none;
+    display:inline-block;
+    padding:4px 10px;
+    height:40px;
+    top:7px;
+}
+.back.black > span {
+       display: block;
+       height: 40px;
+       width: 40px;
+     background-image: -webkit-gradient(linear, left top, right bottom, 
+              from(#7d828c),
+              color-stop(0.5, #303749), 
+              color-stop(0.5, #121a2e), 
+              to(#121a2e));
+       border-left: solid 1px rgba(79, 79, 79, 0.75);
+       border-bottom: solid 1px rgba(79, 79, 79, 0.75);
+      -webkit-transform: rotate(45deg);
+     -webkit-mask-image: -webkit-gradient(linear, left bottom, right top, 
+              from(#000000), 
+              color-stop(0.5,#000000), 
+              color-stop(0.5, transparent), 
+              to(transparent));
+       position: absolute;
+       left: -8px;
+       top: 7px;
+}
 
 .icon-block {
   padding: 0 15px;
@@ -24,14 +53,40 @@
     display: inline;
 }
 
-#extraInfo li a{
+#extraInfo li{
     display: inline-block;
-    padding: 8px;
-    color: #111;
-    text-align: center;
-    padding: 14px 16px;
-}
+    padding: 10px;
+   
 
+}
+#MapCanvas{
+    margin: 0 auto;
+    height: 85%;
+    margin-top: 0.5%;
+    margin-bottom: 0.5%;
+}
+/*
+#footerSection{
+    height: 20px;
+}*/
 #extraInfo li a:hover {
     background-color: #111;
+}
+html, body {
+   height: 100%;
+}
+
+#findPlaces {
+  background-color: #fff;
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: 300;
+  margin-left: 12px;
+  padding: 0 11px 0 13px;
+  text-overflow: ellipsis;
+  width: 300px;
+}
+
+#findPlaces:focus {
+  border-color: #4d90fe;
 }
