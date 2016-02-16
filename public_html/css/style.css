@@ -5,6 +5,15 @@
  *
  * Made By MaterializeCSS.com
  */
+body{
+    background-color: #ffab91;
+}
+
+#login-page{
+    margin: 0 auto;
+    max-width: 30%;
+}
+
 .Hbutton{
     color:#fff59d;
     text-decoration: none;
