@@ -5,12 +5,17 @@
         <group>
             <file>file:/C:/xampp/xammp/htdocs/Capstone%20project/MyRide/public_html/js/libs/gmaps.js/gmaps.js</file>
             <file>file:/C:/xampp/xammp/htdocs/Capstone%20project/MyRide/public_html/BusRider.html</file>
+            <file>file:/C:/xampp/xammp/htdocs/Capstone%20project/MyRide/public_html/registerCompany.html</file>
             <file>file:/C:/xampp/xammp/htdocs/Capstone%20project/MyRide/public_html/css/style.css</file>
-            <file>file:/C:/xampp/xammp/htdocs/Capstone%20project/MyRide/public_html/js/GMap.js</file>
-            <file>file:/C:/xampp/xammp/htdocs/Capstone%20project/MyRide/public_html/index.html</file>
-            <file>file:/C:/xampp/xammp/htdocs/Capstone%20project/MyRide/public_html/PHP/routes.php</file>
+            <file>file:/C:/xampp/xammp/htdocs/Capstone%20project/MyRide/public_html/forgotPassword.html</file>
             <file>file:/C:/xampp/xammp/htdocs/Capstone%20project/MyRide/public_html/config.xml</file>
             <file>file:/C:/xampp/xammp/htdocs/Capstone%20project/MyRide/public_html/js/controller.js</file>
+            <file>file:/C:/xampp/xammp/htdocs/Capstone%20project/MyRide/public_html/PHP/adb.php</file>
+            <file>file:/C:/xampp/xammp/htdocs/Capstone%20project/MyRide/public_html/PHP/GPSDevice.php</file>
+            <file>file:/C:/xampp/xammp/htdocs/Capstone%20project/MyRide/public_html/js/GMap.js</file>
+            <file>file:/C:/xampp/xammp/htdocs/Capstone%20project/MyRide/public_html/index.html</file>
+            <file>file:/C:/xampp/xammp/htdocs/Capstone%20project/MyRide/public_html/adminLogin.html</file>
+            <file>file:/C:/xampp/xammp/htdocs/Capstone%20project/MyRide/public_html/PHP/request.php</file>
         </group>
     </open-files>
 </project-private>

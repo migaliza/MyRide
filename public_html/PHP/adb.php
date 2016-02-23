@@ -8,10 +8,10 @@
  */
 
 define("DB_HOST", 'localhost');
-define("DB_NAME", 'MyRide');
+define("DB_NAME", 'ashesics_beatrice_lungahu');
 define("DB_PORT", 3306);
-define("DB_USER","root");
-define("DB_PWORD","");
+define("DB_USER","ashesics_bl7845");
+define("DB_PWORD","qohbuholkoq7");
 
 
 define("LOG_LEVEL_SEC",0);
@@ -81,7 +81,7 @@ class adb {
             return false;
         }
         //echo "connected";
-        if (!mysql_select_db($this->link,DB_NAME)) {
+        if (!mysqli_select_db($this->link,DB_NAME)) {
 
             $log_id = $this->log_error(LOG_LEVEL_DB_FAIL,2, "select db failed   in db:connect()", mysql_error($this->link));
             return false;
@@ -109,7 +109,7 @@ class adb {
 
         $this->result = mysqli_query($this->link,$str_sql);
         if (!$this->result) {
-            $this->log_error(LOG_LEVEL_DB_FAIL, 4, "query failed", mysql_error($this->link));
+            $this->log_error(LOG_LEVEL_DB_FAIL, 4, "query failed", mysqli_error($this->link));
             return false;
         }
 

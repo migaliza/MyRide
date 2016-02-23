@@ -1,47 +1,23 @@
 <?php
 
-session_start();
 $cmd = $_REQUEST['cmd'];
 switch ($cmd) {
-    //add items to the database
+
     case 1:
-        //include("metre.php");
-        //
-        
-        $DB_HOST = "localhost";
-        $DB_NAME = "csashesi_beatrice-lungahu";
-        $DB_USER = "csashesi_bl16";
-        $DB_PWORD = "db!hiJ35";
-
-        $link = mysqli_connect($DB_HOST, $DB_USER, $DB_PWORD, $DB_NAME);
-        if ($link == false) {
-            echo "not succesfull";
-        }
-        /*
-          if(mysqli_select_db($DB_NAME,$link)){
-          echo "echo can not select db";
-          } */
 
 
-        //$new_date = date('yy-mm-dd',strtotime($_POST['Date']));
-        $owner = $_REQUEST['Owener'];
-        $destination = $_REQUEST['Destination'];
-        $time = $_REQUEST['Time'];
-        $cost = $_REQUEST['Cost'];
-        $People = $_REQUEST['NOoPeople'];
-        $CostperPerson = $_REQUEST['CostPerPerson'];
-        $point = $_REQUEST['MeetUpPoint'];
-        $remaining = $_REQUEST['Remaining'];
+        $latitude = $_GET['lat'];
+        $longitude = $_GET['lon'];
+        $Device = $_GET['device'];
 
+        include_once('GPSDevice.php');
+        $GPSdevice = new GPSDevice();
 
-        $str_query = "INSERT INTO MWC_CarPooling (Owener,Destination,Time,Cost,NOofPeople,CostPerPerson,MeetUpPoint,Remaining) VALUES('$owner','$destination','$time','$cost','$People','$CostperPerson','$point','$remaining')";
-
-        //mysqli_query($link,$str_query);
-        //echo mysqli_error($link);
-        if (mysqli_query($link, $str_query)) {
+        //echo ($GPSdevice->add_GPS_Device($Device,$latitude,$longitude));
+        if ($GPSdevice->add_GPS_Device($Device, $latitude, $longitude)) {
             echo '{"result":1,"message": "SUCCESFULLY ADDED"}';
         } else {
-            //echo $str_query;
+            echo 'not successful';
             echo '{"result":0,"message": "unsuccessful"}';
         }
 
@@ -49,37 +25,30 @@ switch ($cmd) {
 
     //this displays the content added to the database
     case 2:
-        $DB_HOST = "localhost";
-        $DB_NAME = "csashesi_beatrice-lungahu";
-        $DB_USER = "csashesi_bl16";
-        $DB_PWORD = "db!hiJ35";
-
-        $link = mysqli_connect($DB_HOST, $DB_USER, $DB_PWORD, $DB_NAME);
-        if ($link == false) {
-            echo "not succesfull";
-        }
-        /*
-          if(mysqli_select_db($DB_NAME,$link)){
-          echo "echo can not select db";
-          } */
-
-
-        $str_query = "SELECT * FROM MWC_CarPooling ";
-        $result = mysqli_query($link, $str_query);
-        $row = $result->fetch_assoc();
-        echo '{"result":1,"values":['; //start of json object
-        while ($row) {
-            echo json_encode($row);   //convert the result array to json object
-            $row = $result->fetch_assoc();
-            if ($row) {
-                echo ",";     //if there are more rows, add comma 
+        include_once('GPSDevice.php');
+        $device = new GPSDevice();
+        if ($device->fetch_GPS_Coordinates()) {
+            $row = $device->fetch();
+            echo '{"result":1,"coordinates":['; //start of json object
+            while ($row) {
+                echo json_encode($row);   //convert the result array to json object
+                $row = $device->fetch();
+                if ($row) {
+                    echo ",";     //if there are more rows, add comma 
+                }
             }
+            echo "]}";
         }
-        echo "]}";
+
+
+
+
+
+
         break;
 
     case 3:
-/*Update the remaining number of people*/
+        /* Update the remaining number of people */
         $DB_HOST = "localhost";
         $DB_NAME = "csashesi_beatrice-lungahu";
         $DB_USER = "csashesi_bl16";
@@ -119,7 +88,7 @@ switch ($cmd) {
 
         $name = $_REQUEST['JoinPoolName'];
         $pNumber = $_REQUEST['PhoneNumber'];
-        $poolOwner =$_REQUEST['JoinPoolName'];
+        $poolOwner = $_REQUEST['JoinPoolName'];
         $studentStaffId = $_REQUEST['captured'];
 
 
@@ -159,8 +128,8 @@ switch ($cmd) {
 
 
         $str_query = "INSERT INTO MWC_SignUpCarPooling (Email,FirstName,LastName,PhonNumber,randomPass,UserName) VALUES('$email','$FirstName','$LastName','$phoneNumber','$randomPass','$username')";
-        
-         $content="Your+user+name+is%3A+".$username."+and+Password%3A+".$randomPass;
+
+        $content = "Your+user+name+is%3A+" . $username . "+and+Password%3A+" . $randomPass;
         if (mysqli_query($link, $str_query)) {
             echo '{"result":1,"message": "SUpdated"}';
             ob_start();
@@ -199,10 +168,10 @@ switch ($cmd) {
 
 
         $str_query = "SELECT * from MWC_SignUpCarPooling WHERE randomPass='$password' AND UserName='$username'";
-        $result=mysqli_query($link, $str_query);
-        $rowCount= mysqli_num_rows($result);
+        $result = mysqli_query($link, $str_query);
+        $rowCount = mysqli_num_rows($result);
 
-        if ($rowCount>0) {
+        if ($rowCount > 0) {
             echo '{"result":1,"message": "SUpdated"}';
             $_SESSION['UserName'] = $username;
         } else {
@@ -210,8 +179,8 @@ switch ($cmd) {
             echo '{"result":0,"message": "unsuccessful"}';
         }
         break;
-        
-        
+
+
     case 7:
         $DB_HOST = "localhost";
         $DB_NAME = "csashesi_beatrice-lungahu";

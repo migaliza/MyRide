@@ -14,6 +14,8 @@ body{
     max-width: 30%;
 }
 
+
+
 .Hbutton{
     color:#fff59d;
     text-decoration: none;
@@ -85,7 +87,7 @@ html, body {
    height: 100%;
 }
 
-#findPlaces {
+#end {
   background-color: #fff;
   font-family: Roboto;
   font-size: 15px;
@@ -96,6 +98,24 @@ html, body {
   width: 300px;
 }
 
-#findPlaces:focus {
+#end:focus {
   border-color: #4d90fe;
 }
+
+
+#start {
+  background-color: #fff;
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: 300;
+  margin-left: 12px;
+  padding: 0 11px 0 13px;
+  text-overflow: ellipsis;
+  width: 300px;
+}
+
+#start:focus {
+  border-color: #4d90fe;
+}
+
+
