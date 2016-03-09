@@ -118,4 +118,30 @@ html, body {
   border-color: #4d90fe;
 }
 
+#adminDashSide ul{
+    list-style-type:none;
+  
+}
 
+#adminDashSide ul li{
+    display:inline;
+}
+
+#adminDashSide ul li a{
+    text-decoration:none;
+    
+ 
+    
+}
+#collapsibleValues ul li{
+    display:inline;
+}
+#collapsibleValues ul{
+    background-color: #BDBDBD;
+    list-style-type: none;
+    //padding:0;
+   // margin:0;
+}
+#collapsibleValues ul li a{
+    display:block;
+}

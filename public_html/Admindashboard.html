@@ -1,0 +1,219 @@
+<!doctype html>
+<!--
+  Material Design Lite
+  Copyright 2015 Google Inc. All rights reserved.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      https://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License
+-->
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>MyRide Bus Management</title>
+
+        <!-- Add to homescreen for Chrome on Android -->
+        <meta name="mobile-web-app-capable" content="yes">
+        <link rel="icon" sizes="192x192" href="images/android-desktop.png">
+
+        <!-- Add to homescreen for Safari on iOS -->
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="apple-mobile-web-app-title" content="Material Design Lite">
+        <link rel="apple-touch-icon-precomposed" href="images/ios-desktop.png">
+
+        <!-- Tile icon for Win8 (144x144 + tile color) -->
+        <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+        <meta name="msapplication-TileColor" content="#3372DF">
+
+        <!--favicon icon-->
+        <link rel="icon" type="image/x-icon" href="images/favicon.ico"/>
+
+
+        <!--google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+        <!--CSS-->
+        <link href="css/AdminStyle.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+        <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+        <link href="css/material.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+        <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+
+        <style>
+            #view-source {
+                position: fixed;
+                display: block;
+                right: 0;
+                bottom: 0;
+                margin-right: 40px;
+                margin-bottom: 40px;
+                z-index: 900;
+            }
+        </style>
+    </head>
+    <body>
+
+        <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+            <header class="demo-header mdl-layout__header mdl-color--grey-100 deep-orange lighten-2">
+                <div class="mdl-layout__header-row">
+                    <span class="mdl-layout-title">MyRide</span>
+                    <div class="mdl-layout-spacer"></div>
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+                        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+                            <i class="material-icons">search</i>
+                        </label>
+                        <div class="mdl-textfield__expandable-holder">
+                            <input class="mdl-textfield__input" type="text" id="search">
+                            <label class="mdl-textfield__label" for="search">Enter your query...</label>
+                        </div>
+                    </div>
+
+
+                </div>
+            </header>
+            <div class="demo-drawer mdl-layout__drawer  grey darken-1 mdl-color-text--blue-grey-50">
+                <header class="demo-drawer-header">
+                    <img src="#" class="demo-avatar">
+                    <div class="demo-avatar-dropdown">
+                        <span>Name of Agency</span>
+                        <div class="mdl-layout-spacer"></div>
+                    </div>
+                </header>
+
+                <!--<nav class="">-->
+                <div class=" ">
+                    <ul class="collapsible" data-collapsible="accordion" id="adminDashSide">
+                        <li>
+                            <div class="collapsible-header 1"><i class="material-icons">home</i><a href="#"> Home</a>
+                        </li>
+                        <li>
+                            <div class="collapsible-header"><i class=""></i> Bus</div>
+                            <div class="collapsible-body grey lighten-2" id="collapsibleValues">
+                                <ul>
+                                    <li> <a  href="#"><i class="material-icons">info_outline</i>Bus Info</a></li>
+                                    <li><a  href="#"><i class="material-icons">add_box</i>Add a Bus</a></li>
+                                    <li><a  href="#"><i class="material-icons">mode_edit</i>Edit Bus Info</a></li>
+                                </ul>  
+                            </div>
+                        </li>
+                        <li>
+                            <div class="collapsible-header"><i class=""></i> Driver</div>
+                            <div class="collapsible-body grey lighten-2" id="collapsibleValues">
+                                <ul>
+                                    <li><a  href="#"><i class="material-icons">info_outline</i>Driver Info</a></li>
+                                    <li><a  href="#"><i class="material-icons">add_box</i>Add Driver</a></li>
+                                    <li><a  href="#"><i class="material-icons">mode_edit</i>Edit Driver Info</a><li>
+                                </ul>
+
+                            </div>
+                        </li>
+                        <li>
+                            <div class="collapsible-header"><i class=""></i> Bus Stops</div>
+                            <div class="collapsible-body grey lighten-2" id="collapsibleValues">
+                                <ul>
+                                    <li><a  href="#"><i class="material-icons">info_outline</i>Bus Stops info</a></li>
+                                    <li><a  href="#"><i class="material-icons">add_box</i>Add a Bus Stop</a></li>
+                                    <li><a  href="#"><i class="material-icons">mode_edit</i>Edit Bus Stop Info</a></li>
+                                </ul>                           
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!--</nav>-->
+            </div>
+            <main class="mdl-layout__content mdl-color--grey-100">
+                <div class="mdl-grid demo-content">
+
+                </div>
+                <div class="demo-graphs mdl-shadow--2dp mdl-color--white mdl-cell mdl-cell--8-col">
+
+                </div>
+                <div class="demo-cards mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet mdl-grid mdl-grid--no-spacing">
+                    <div class="demo-updates mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--12-col-desktop">
+
+                    </div>
+                    <div class="demo-separator mdl-cell--1-col"></div>
+                    <div class="demo-options mdl-card mdl-color--deep-purple-500 mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--3-col-tablet mdl-cell--12-col-desktop">
+
+                        <div class="mdl-card__actions mdl-card--border">
+                            <a href="#" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--blue-grey-50">Change location</a>
+                            <div class="mdl-layout-spacer"></div>
+                            <i class="material-icons">location_on</i>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        <!-- Add a bus modal -->
+        <div id="modalBus" class="modal">
+            <div class="modal-content">
+                <h4>Add a new Bus</h4>
+                <div class="row">
+                    <form class="col s12">
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <input placeholder="Bus Name" id="BusName" type="text" name="Bus_Name">
+                                <label for="Bus_Name"> Bus Name</label>
+                            </div>
+                            <div class="input-field col s6">
+                                
+                            </div>
+                                
+                        </div>
+                            
+                    </form>
+                </div>
+                
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+            </div>
+        </div>
+    </main>
+</div>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" style="position: fixed; left: -1000px; height: -1000px;">
+<defs>
+
+<g id="piechart">
+<circle cx=0.5 cy=0.5 r=0.5>
+<path d="M 0.5 0.5 0.5 0 A 0.5 0.5 0 0 1 0.95 0.28 z" stroke="none" fill="rgba(255, 255, 255, 0.75)">
+</g>
+</defs>
+</svg>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 500 250" style="position: fixed; left: -1000px; height: -1000px;">
+<defs>
+<g id="chart">
+<g id="Gridlines">
+
+</g>
+
+</g>
+
+</g>
+<g id="Layer_4">
+
+</g>
+</g>
+</defs>
+</svg>
+
+<script src="js/material.min.js"></script>
+<script src="js/jquery-2.1.4.min.js"></script>
+<script src="js/materialize.js"></script>
+<script src="js/controller.js"></script>
+
+
+</body>
+</html>
