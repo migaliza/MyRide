@@ -22,3 +22,12 @@ $( document ).ready(function(){
       //accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
     });
   });
+  
+  
+  /**
+   * function to initialize datepicker
+   */ 
+   $('.datepicker').pickadate({
+    selectMonths: true, // Creates a dropdown to control month
+    selectYears: 30 // Creates a dropdown of 15 years to control year
+  });
