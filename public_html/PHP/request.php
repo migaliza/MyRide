@@ -57,9 +57,9 @@ switch ($cmd) {
         $driverId = $_REQUEST['Bus_DriverId'];
         $routeCode = $_REQUEST['Bus_RouteCode'];
         $Agency = $_REQUEST['Bus_Agency'];
-        $numberofSeats = $_REQUEST['Number_of_seats'];
-
-        if ($bus->add_new_bus($busId,$busName,$gpsDeviceId,$driverId,$routeCode,$Agency,$numberofSeats )) {
+        $numberofseats = $_REQUEST['Number_of_seats'];
+        $ValSeats = $numberofseats;
+        if ($bus->add_new_bus($busId, $busName, $gpsDeviceId, $driverId, $routeCode, $Agency, $ValSeats)) {
             echo '{"result":1,"message": "YOU HAVE ADDED A NEW BUS"}';
         } else {
             echo '{"result":0,"message": "NOT SUCCESSFUL"}';

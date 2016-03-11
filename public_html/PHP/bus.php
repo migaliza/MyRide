@@ -41,6 +41,7 @@ class bus extends adb{
     function add_new_bus($busId,$busName,$gpsDeviceId,$busDriver,$BusRouteCode,$BusAgency,$numberofSeats){
         $str_query = "INSERT INTO bus (Bus_id,Bus_Name,GPSDevice_ID,Bus_DriverId,Bus_RouteCode,Bus_Agency,Number_of_seats) VALUES('$busId','$busName','$gpsDeviceId','$busDriver','$BusRouteCode','$BusAgency','$numberofSeats')";
         if($this->query($str_query)){
+            echo $numberofSeats;
             return true;
         }
         else{

@@ -178,30 +178,31 @@ and open the template in the editor.
                             </div>
                             <div class="row">
                                 <div class="input-field col s12">
-                                    <input type="date" class="datepicker" name="dateofBirth">
+                                    <input type="date" class="datepicker" id="birthday" name="dateofBirth">
                                     <label for="yearofbirth">Birth Date</label>
                                 </div>
                             </div>
+                            <button class="btn waves-effect waves-light" type="submit" name="action" onclick="addBus()">ADD
+                                <i class="material-icons right">send</i>
+                            </button>
                         </form>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <div class="row">     
-                        <ul>
-                            <li><button class="btn btn-small modal-close waves-effect waves-light" type="button" name="action">ADD</button></li>
-                            <li><button class="btn btn-small modal-close red waves-effect waves-light" type="button" name="action">CANCEL</button></li>
-                        </ul> 
+                        
+                            <button class="btn btn-small modal-close red waves-effect waves-light" type="button" name="action">CANCEL</button>
                     </div>
                 </div>
             </div>
 
-Bus_id=busA&Bus_Name=NomaBus&GPSDevice_ID=BusA&Bus_DriverId=BLMigaliza=Bus_RouteCode=500KwabenyaDome&Bus_AgencyMetroMass&Number_of_seats=50
+
             <!-- Add a bus modal -->
             <div id="modalBus" class="modal">
                 <div class="modal-content">
                     <h4>Add a new Bus</h4>
                     <div class="row">
-                        <form class="col s12">
+                        <form class="col s12" method="POST">
                             <div class="row">
                                 <div class="input-field col s12">
                                     <input  id="Busid" type="text" name="Bus_id">

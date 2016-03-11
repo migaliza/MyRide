@@ -3,17 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/xammp/htdocs/Capstone%20project/MyRide/public_html/js/libs/gmaps.js/gmaps.js</file>
-            <file>file:/C:/xampp/xammp/htdocs/Capstone%20project/MyRide/public_html/Admindashboard.html</file>
-            <file>file:/C:/xampp/xammp/htdocs/Capstone%20project/MyRide/public_html/BusRider.html</file>
-            <file>file:/C:/xampp/xammp/htdocs/Capstone%20project/MyRide/public_html/registerCompany.html</file>
-            <file>file:/C:/xampp/xammp/htdocs/Capstone%20project/MyRide/public_html/css/style.css</file>
-            <file>file:/C:/xampp/xammp/htdocs/Capstone%20project/MyRide/public_html/js/GMap.js</file>
+            <file>file:/C:/xampp/xammp/htdocs/Capstone%20project/MyRide/public_html/PHP/GPSDevice.php</file>
+            <file>file:/C:/xampp/xammp/htdocs/Capstone%20project/MyRide/public_html/PHP/bus.php</file>
+            <file>file:/C:/xampp/xammp/htdocs/Capstone%20project/MyRide/public_html/DashBoard.html</file>
             <file>file:/C:/xampp/xammp/htdocs/Capstone%20project/MyRide/public_html/index.html</file>
-            <file>file:/C:/xampp/xammp/htdocs/Capstone%20project/MyRide/public_html/forgotPassword.html</file>
-            <file>file:/C:/xampp/xammp/htdocs/Capstone%20project/MyRide/public_html/adminLogin.html</file>
-            <file>file:/C:/xampp/xammp/htdocs/Capstone%20project/MyRide/public_html/config.xml</file>
-            <file>file:/C:/xampp/xammp/htdocs/Capstone%20project/MyRide/public_html/css/AdminStyle.css</file>
+            <file>file:/C:/xampp/xammp/htdocs/Capstone%20project/MyRide/public_html/css/materialize.css</file>
+            <file>file:/C:/xampp/xammp/htdocs/Capstone%20project/MyRide/public_html/PHP/request.php</file>
             <file>file:/C:/xampp/xammp/htdocs/Capstone%20project/MyRide/public_html/js/controller.js</file>
         </group>
     </open-files>

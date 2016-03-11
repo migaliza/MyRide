@@ -45,16 +45,17 @@ function sendRequest(u) {
    * @returns {undefined}
    */
   function addBus(){
-      var busId = $("#busid").val();
+      var busId = $("#Busid").val();
       var busName = $("#BusName").val();
       var gpsDeviceId= $("#GPSDevice_ID").val();
       var driverId = $("#Bus_DriverId").val();
       var routeCode = $("#Bus_RouteCode").val();
       var Agency = $("#Bus_Agency").val();
-      var numberofSeats = $("#number_of_seats").val();
-      
-      var stringval = "Bus_id"+busId+"&Bus_Name"+busName+"&GPSDevice_ID"+gpsDeviceId+"&Bus_DriverId"+driverId+"&Bus_RouteCode"+routeCode+"&Bus_Agency"+Agency+"&Number_Of_seats"+numberofSeats;
+      var numberofSeats = parseInt($("#number_of_seats").val());
+     
+      var stringval = "Bus_id="+busId+"&Bus_Name="+busName+"&GPSDevice_ID="+gpsDeviceId+"&Bus_DriverId="+driverId+"&Bus_RouteCode="+routeCode+"&Bus_Agency="+Agency+"&Number_of_seats="+numberofSeats;
      var theUrl =" http://166.62.103.147/~ashesics/class2016/beatrice_lungahu/MyRide/public_html/PHP/request.php?cmd=3&"+stringval;
+     console.log(theUrl);
      var object = sendRequest(theUrl);
      
      if(object.result==1){
@@ -63,7 +64,25 @@ function sendRequest(u) {
      else{
          Materialize.toast(object.message,4000,'rounded');
      }
+
+  }
+  
+  function adddriver(){
+      var driverId = $("#driverID").val();
+      var firstName = $("#firstName").val();
+      var lastName= $("#lastName").val();
+      var BirthDay = $("#birthday").val();
       
-      
-      
+     
+      var stringval = "DriverId="+driverId+"&FirstName="+firstName+"&LastName="+lastName+"&dateofBirth="+BirthDay;
+     var theUrl =" http://166.62.103.147/~ashesics/class2016/beatrice_lungahu/MyRide/public_html/PHP/request.php?cmd=3&"+stringval;
+     console.log(theUrl);
+     var object = sendRequest(theUrl);
+     
+     if(object.result==1){
+         Materialize.toast(object.message,4000,'rounded');
+     }
+     else{
+         Materialize.toast(object.message,4000,'rounded');
+     }
   }
