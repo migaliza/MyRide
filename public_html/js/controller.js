@@ -13,15 +13,7 @@ $( document ).ready(function(){
     // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
     $('.modal-trigger').leanModal();
   });
-  
-  /**
-   * function to add event on the collapsible menu in the Admindashboard
-   */
- $(document).ready(function(){
-    $('.collapsible').collapsible({
-      //accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
-    });
-  });
+
   
   
   /**
@@ -31,3 +23,47 @@ $( document ).ready(function(){
     selectMonths: true, // Creates a dropdown to control month
     selectYears: 30 // Creates a dropdown of 15 years to control year
   });
+  
+  /*
+ * function to send request
+ * @param {type} directionsService
+ * @param {type} directionsDisplay
+ * @returns {undefined}
+ */
+
+function sendRequest(u) {
+    //alert("here");
+    // alert(u);
+    console.log(u);
+    var obj = $.ajax({url: u, async: false});
+    var result = $.parseJSON(obj.responseText);
+    return result;
+}
+  
+  /**
+   * function to add data to the database
+   * @returns {undefined}
+   */
+  function addBus(){
+      var busId = $("#busid").val();
+      var busName = $("#BusName").val();
+      var gpsDeviceId= $("#GPSDevice_ID").val();
+      var driverId = $("#Bus_DriverId").val();
+      var routeCode = $("#Bus_RouteCode").val();
+      var Agency = $("#Bus_Agency").val();
+      var numberofSeats = $("#number_of_seats").val();
+      
+      var stringval = "Bus_id"+busId+"&Bus_Name"+busName+"&GPSDevice_ID"+gpsDeviceId+"&Bus_DriverId"+driverId+"&Bus_RouteCode"+routeCode+"&Bus_Agency"+Agency+"&Number_Of_seats"+numberofSeats;
+     var theUrl =" http://166.62.103.147/~ashesics/class2016/beatrice_lungahu/MyRide/public_html/PHP/request.php?cmd=3&"+stringval;
+     var object = sendRequest(theUrl);
+     
+     if(object.result==1){
+         Materialize.toast(object.message,4000,'rounded');
+     }
+     else{
+         Materialize.toast(object.message,4000,'rounded');
+     }
+      
+      
+      
+  }

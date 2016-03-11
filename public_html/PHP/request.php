@@ -48,29 +48,23 @@ switch ($cmd) {
         break;
 
     case 3:
-        /* Update the remaining number of people */
-        $DB_HOST = "localhost";
-        $DB_NAME = "csashesi_beatrice-lungahu";
-        $DB_USER = "csashesi_bl16";
-        $DB_PWORD = "db!hiJ35";
+        include_once ('bus.php');
+        $bus = new bus();
 
-        $link = mysqli_connect($DB_HOST, $DB_USER, $DB_PWORD, $DB_NAME);
-        if ($link == false) {
-            echo "not succesfull";
-        }
+        $busId = $_REQUEST['Bus_id'];
+        $busName = $_REQUEST['Bus_Name'];
+        $gpsDeviceId = $_REQUEST['GPSDevice_ID'];
+        $driverId = $_REQUEST['Bus_DriverId'];
+        $routeCode = $_REQUEST['Bus_RouteCode'];
+        $Agency = $_REQUEST['Bus_Agency'];
+        $numberofSeats = $_REQUEST['Number_of_seats'];
 
-        $Remaining = $_REQUEST['Remaining'];
-        $poolid = $_REQUEST['PoolId'];
-
-
-        $str_query = "UPDATE MWC_CarPooling SET Remaining='$Remaining' WHERE PoolId='$poolid'";
-        $result = mysqli_query($link, $str_query);
-        if (mysqli_query($link, $str_query)) {
-            echo '{"result":1,"message": "SUpdated"}';
+        if ($bus->add_new_bus($busId,$busName,$gpsDeviceId,$driverId,$routeCode,$Agency,$numberofSeats )) {
+            echo '{"result":1,"message": "YOU HAVE ADDED A NEW BUS"}';
         } else {
-            //echo $str_query;
-            echo '{"result":0,"message": "unsuccessful"}';
+            echo '{"result":0,"message": "NOT SUCCESSFUL"}';
         }
+
         break;
 
 

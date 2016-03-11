@@ -15,11 +15,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-#modalBus{
-    padding
-}
+
 body{
     background-color: #ffab91;
+}
+
+.collapsible-body ul li{
+    padding: 0.05%;
 }
 html {
   font-family: 'Roboto', 'Helvetica', sans-serif;
