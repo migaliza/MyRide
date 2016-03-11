@@ -69,34 +69,25 @@ switch ($cmd) {
 
 
     case 4:
-        $DB_HOST = "localhost";
-        $DB_NAME = "csashesi_beatrice-lungahu";
-        $DB_USER = "csashesi_bl16";
-        $DB_PWORD = "db!hiJ35";
-
-        $link = mysqli_connect($DB_HOST, $DB_USER, $DB_PWORD, $DB_NAME);
-        if ($link == false) {
-            echo "not succesfull";
+        include_once('driver.php');
+        $driver = new driver();
+        
+        $driverId = $_REQUEST['DriverId'];
+        $firstName = $_REQUEST['fisrtName'];
+        $lastName = $_REQUEST['lastName'];
+        $AssignedBus_ID = $_REQUEST['AssignedBus_ID'];
+        
+        if($driver->add_driver($driverId,$firstName,$lastName,$AssignedBus_ID)){
+            echo $driverId." ".$firstName." ".$lastName." ".$AssignedBus_ID;
+            echo '{"result":1 "message: SUCCESSFULLY ADDED"}';
         }
-
-
-        $name = $_REQUEST['JoinPoolName'];
-        $pNumber = $_REQUEST['PhoneNumber'];
-        $poolOwner = $_REQUEST['JoinPoolName'];
-        $studentStaffId = $_REQUEST['captured'];
-
-
-
-        $str_query = "INSERT INTO  MWC_PoolMembers (Name,PhoneNumber,PoolOwner,StaffStudentId) VALUES('$name','$pNumber','$poolOwner','$studentStaffId')";
-        if (mysqli_query($link, $str_query)) {
-            echo '{"result":1,"message": "SUpdated"}';
-        } else {
-            //echo $str_query;
-            echo '{"result":0,"message": "unsuccessful"}';
+        else{
+            echo '{"result":0 "message: UNSUCCESSFULLY"}';
         }
-        // $poolDetails = "You joined the pool";
-
-
+        
+        
+                
+        
 
         break;
 

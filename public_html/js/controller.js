@@ -71,11 +71,11 @@ function sendRequest(u) {
       var driverId = $("#driverID").val();
       var firstName = $("#firstName").val();
       var lastName= $("#lastName").val();
-      var BirthDay = $("#birthday").val();
+      var assignedBus = $("#assignedBusId").val();
       
      
-      var stringval = "DriverId="+driverId+"&FirstName="+firstName+"&LastName="+lastName+"&dateofBirth="+BirthDay;
-     var theUrl =" http://166.62.103.147/~ashesics/class2016/beatrice_lungahu/MyRide/public_html/PHP/request.php?cmd=3&"+stringval;
+      var stringval = "DriverId="+driverId+"&FirstName="+firstName+"&LastName="+lastName+"&AssignedBus_ID="+assignedBus;
+     var theUrl =" http://166.62.103.147/~ashesics/class2016/beatrice_lungahu/MyRide/public_html/PHP/request.php?cmd=4&"+stringval;
      console.log(theUrl);
      var object = sendRequest(theUrl);
      
