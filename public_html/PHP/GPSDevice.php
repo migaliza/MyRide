@@ -26,9 +26,9 @@ class GPSDevice extends adb {
         return false;
     }
     
-    /*
-     * function to find fetch the GPS coordinates from the database
-     * 
+    /**
+     * function to fetch the GPS coordinates from the database
+     * @return boolean
      */
     
     function fetch_GPS_Coordinates(){
@@ -60,6 +60,17 @@ class GPSDevice extends adb {
         }
 
         return true;
+    }
+    
+    
+    function addGPSDeviceDescription($device,$description){
+        $str_query="INSERT INTO gpsdevice (Device_Id,Description) VALUES('$device','$description')";
+        if($this->query($str_query)){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 
 }

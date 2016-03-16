@@ -17,7 +17,7 @@ switch ($cmd) {
         if ($GPSdevice->add_GPS_Device($Device, $latitude, $longitude)) {
             echo '{"result":1,"message": "SUCCESFULLY ADDED"}';
         } else {
-            echo 'not successful';
+           
             echo '{"result":0,"message": "unsuccessful"}';
         }
 
@@ -73,16 +73,16 @@ switch ($cmd) {
         $driver = new driver();
         
         $driverId = $_REQUEST['DriverId'];
-        $firstName = $_REQUEST['fisrtName'];
+        $firstName = $_REQUEST['firstName'];
         $lastName = $_REQUEST['lastName'];
         $AssignedBus_ID = $_REQUEST['AssignedBus_ID'];
         
         if($driver->add_driver($driverId,$firstName,$lastName,$AssignedBus_ID)){
             echo $driverId." ".$firstName." ".$lastName." ".$AssignedBus_ID;
-            echo '{"result":1 "message: SUCCESSFULLY ADDED"}';
+            echo '{"result":1 "message": "SUCCESSFULLY ADDED"}';
         }
         else{
-            echo '{"result":0 "message: UNSUCCESSFULLY"}';
+            echo '{"result":0 "message": "UNSUCCESSFULLY"}';
         }
         
         
@@ -92,77 +92,37 @@ switch ($cmd) {
         break;
 
     case 5:
-        $DB_HOST = "localhost";
-        $DB_NAME = "csashesi_beatrice-lungahu";
-        $DB_USER = "csashesi_bl16";
-        $DB_PWORD = "db!hiJ35";
-
-        $link = mysqli_connect($DB_HOST, $DB_USER, $DB_PWORD, $DB_NAME);
-        if ($link == false) {
-            echo "not succesfull";
+        include_once('busStops.php');
+        $busStop = new busStops();
+        
+        $name = $_REQUEST['Bus_Stop_Name'];
+        $lon= $_REQUEST['Longitude'];
+        $lat = $_REQUEST['Latitude'];
+        $RouteId = $_REQUEST['RouteId'];
+        
+        if($busStop->add_new_busStop($name,$lon,$lat,$RouteId)){
+            echo '{"result": 1 "message": "SUCCESSFULLY ADDED"}';
         }
-
-        $email = $_REQUEST['Email'];
-        $FirstName = $_REQUEST['FirstName'];
-        $LastName = $_REQUEST['LastName'];
-        $phoneNumber = $_REQUEST['PhonNumber'];
-        $username = $_REQUEST['UserName'];
-        $random = mt_rand(30, 60);
-        $randomPass = $LastName . $random;
-
-
-
-        $str_query = "INSERT INTO MWC_SignUpCarPooling (Email,FirstName,LastName,PhonNumber,randomPass,UserName) VALUES('$email','$FirstName','$LastName','$phoneNumber','$randomPass','$username')";
-
-        $content = "Your+user+name+is%3A+" . $username . "+and+Password%3A+" . $randomPass;
-        if (mysqli_query($link, $str_query)) {
-            echo '{"result":1,"message": "SUpdated"}';
-            ob_start();
-            $url = "https://api.smsgh.com/v3/messages/send?"
-                    . "From=CarPooling"
-                    . "&To=%2B$phoneNumber"
-                    . "&Content=$content"
-                    . "&ClientId=odfbifrp"
-                    . "&ClientSecret=rktegnml"
-                    . "&RegisteredDelivery=true";
-            $response = file_get_contents($url);
-            ob_end_clean();
-        } else {
-            //echo $str_query;
-            echo '{"result":0,"message": "Sign Up unsuccessful"}';
+        else{
+            echo '{"result":0 "message": "UNSUCCESFULL"}';
         }
-
-
-
-
+        
         break;
 
     case 6:
-        $DB_HOST = "localhost";
-        $DB_NAME = "csashesi_beatrice-lungahu";
-        $DB_USER = "csashesi_bl16";
-        $DB_PWORD = "db!hiJ35";
-
-        $link = mysqli_connect($DB_HOST, $DB_USER, $DB_PWORD, $DB_NAME);
-        if ($link == false) {
-            echo "not succesfull";
+        include_once ('GPSDevice.php');
+        $GPSdevice = new GPSDevice();
+        
+        $device = $_REQUEST['Device_Id'];
+        $description = $_REQUEST['Description'];
+        
+        if($GPSdevice->addGPSDeviceDescription($device,$description)){
+            echo '{"result":1 "message": "SUCCESSFULLY ADDED A NEW DEVICE DESCRIPTION"}';
         }
-
-        $username = $_REQUEST['UserName'];
-        $password = $_REQUEST['randomPass'];
-
-
-        $str_query = "SELECT * from MWC_SignUpCarPooling WHERE randomPass='$password' AND UserName='$username'";
-        $result = mysqli_query($link, $str_query);
-        $rowCount = mysqli_num_rows($result);
-
-        if ($rowCount > 0) {
-            echo '{"result":1,"message": "SUpdated"}';
-            $_SESSION['UserName'] = $username;
-        } else {
-
-            echo '{"result":0,"message": "unsuccessful"}';
+        else{
+             echo '{"result":0 "message": "UNSUCCESSFULL"}';
         }
+       
         break;
 
 

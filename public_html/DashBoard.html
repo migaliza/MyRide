@@ -31,7 +31,8 @@ and open the template in the editor.
 
 
             <ul id="nav-mobile" class="side-nav fixed " style="overflow:auto;left:0px; padding:0.5%">
-                <li class="logo"><a id="logo-container" href="#" class="brand-logo"> Add Company Logo</a></li>
+                <!--<li class="logo"><a id="logo-container" href="#" class="brand-logo"> Add Company Logo</a></li>-->
+                <li><img src="images/logo.PNG" alt="" id="logo-container" class="brand-logo"></li>
                 <li class="divider"></li>
 
                 <li class="bold"><a href="index.html" class="waves-effect waves-teal">Home</a></li>
@@ -100,14 +101,15 @@ and open the template in the editor.
                                     <label for="Description">Device Description</label>
                                 </div>
                             </div>
+                            <button class="btn waves-effect waves-light" type="submit"  onclick="addNewGPSDevice()">ADD
+                                <i class="material-icons right">send</i>
+                            </button>
                         </form>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <ul>
-                        <li> <button class="btn btn-small waves-effect  waves-light modal-close " type="button" name="action">ADD</button></li>
-                        <li><button  class=" btn btn-small modal-action red modal-close waves-effect " type="button" name="action">CANCEL</button></li>
-                    </ul>
+                    <button  class=" btn btn-small modal-action red modal-close waves-effect " type="button" name="action">CANCEL</button>
+
                 </div>
             </div>
 
@@ -126,12 +128,12 @@ and open the template in the editor.
                             </div>
                             <div class="row">
                                 <div class="input-field col m6 s12">
-                                    <input  id="longitude" type="text" name="longitude">
+                                    <input  id="longitude" type="text" name="Longitude">
                                     <label for="longitude">Longitude</label>
                                 </div>
 
                                 <div class="input-field col m6 s12">
-                                    <input id="latitude" type="text" name="latitude">
+                                    <input id="latitude" type="text" name="Latitude">
                                     <label for="latitude">Latitude</label>
                                 </div>
                             </div>
@@ -141,14 +143,14 @@ and open the template in the editor.
                                     <label for="routeId">Route Code</label>
                                 </div>
                             </div>
+                            <button class="btn waves-effect waves-light" type="submit"  onclick="addBusStop()">ADD
+                                <i class="material-icons right">send</i>
+                            </button>
                         </form>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <ul>
-                        <li> <button class="btn btn-small waves-effect  waves-light modal-close " type="button" name="action">ADD</button></li>
-                        <li><button  class=" btn btn-small modal-action red modal-close waves-effect " type="button" name="action">CANCEL</button></li>
-                    </ul>
+                    <button  class=" btn btn-small modal-action red modal-close waves-effect " type="button" name="action">CANCEL</button>
                 </div>
             </div>
 
@@ -157,7 +159,7 @@ and open the template in the editor.
                 <div class="modal-content">
                     <h4>Add a new Bus</h4>
                     <div class="row">
-                        <form class="col s12">
+                        <form class="col s12" method="GET">
                             <div class="row">
                                 <div class="input-field col s12">
                                     <input  id="driverID" type="text" name="DriverId">
@@ -167,12 +169,12 @@ and open the template in the editor.
                             </div>
                             <div class="row">
                                 <div class="input-field col m6 s12">
-                                    <input  id="firstName" type="text" name="FirstName">
+                                    <input  id="firstName" type="text" name="firstName">
                                     <label for="FirstName">First Name</label>
                                 </div>
 
                                 <div class="input-field col m6 s12">
-                                    <input id="lastName" type="text" name="LastName">
+                                    <input id="lastName" type="text" name="lastName">
                                     <label for="LastName">Last Name</label>
                                 </div>
                             </div>
@@ -182,7 +184,7 @@ and open the template in the editor.
                                     <label for="assignedBusId">Assigned Bus ID</label>
                                 </div>
                             </div>
-                            <button class="btn waves-effect waves-light" type="submit" name="action" onclick="adddriver()">ADD
+                            <button class="btn waves-effect waves-light" type="submit"  onclick="adddriver()">ADD
                                 <i class="material-icons right">send</i>
                             </button>
                         </form>
@@ -190,8 +192,8 @@ and open the template in the editor.
                 </div>
                 <div class="modal-footer">
                     <div class="row">     
-                        
-                            <button class="btn btn-small modal-close red waves-effect waves-light" type="button" name="action">CANCEL</button>
+
+                        <button class="btn btn-small modal-close red waves-effect waves-light" type="button" name="action">CANCEL</button>
                     </div>
                 </div>
             </div>
@@ -242,14 +244,13 @@ and open the template in the editor.
                             <button class="btn waves-effect waves-light" type="submit" name="action" onclick="addBus()">ADD
                                 <i class="material-icons right">send</i>
                             </button>
-                           
                         </form>
                     </div>
                 </div>
 
                 <div class="modal-footer">
-                        <button  class=" btn btn-small modal-action red modal-close waves-effect " type="button" name="action">CANCEL</button>
-                    </ul
+                    <button  class=" btn btn-small modal-action red modal-close waves-effect " type="button" name="action">CANCEL</button>
+                  
                 </div>
             </div>
 
