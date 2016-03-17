@@ -16,16 +16,7 @@
  * limitations under the License.
  */
 
-body{
-    background-color: #ffab91;
-}
 
-.collapsible-body ul li{
-    padding: 0.05%;
-}
-html {
-  font-family: 'Roboto', 'Helvetica', sans-serif;
-}
 .demo-avatar {
   width: 48px;
   height: 48px;

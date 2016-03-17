@@ -12,7 +12,7 @@
 		<author href="httpp://www.ashesi.edu.gh" email="migaliza.lyza@gmail.com">>
 			Beatrice Migaliza
 		</author>
-		<icon src="images/logo.png" platform="ios" width="57" height="57" density="mdpi" />
+		<icon src="images/logo.png" platform="android" width="57" height="57" density="mdpi" />
 		<gap:plugin name="cordova-plugin-whitelist" source="npm" />
 		<allow-navigation href="data:*" />
 		<allow-intent href="*" />
