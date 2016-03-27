@@ -10,7 +10,10 @@ include("adb.php");
 
 class administrator extends adb{
     
-    function add_new_admin($name,$password,$agence){
+    /**
+     * function to sign up an individual
+     */    
+    function Management_signUP($name,$password,$agence){
         $str_query="INSERT INTO administrator (Admin_name,Admin_password,Agence) VALUES('$name','$password','$agence')";
         if(!$this->query($str_query)){
             return false;

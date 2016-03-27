@@ -7,6 +7,7 @@ and open the template in the editor.
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
         <title>MyRide</title>
 
@@ -28,16 +29,15 @@ and open the template in the editor.
                         <li> <a href="#">Home</a></li>
                         <li><a href="BusRider.html">Bus Rider</a></li>
                         <li><a href="#">Driver</a></li>
-                        <li><a href="#">Management</a></li>
-                        <li><a class=" modal-trigger" href="#search"><i class="material-icons left">search</i>Search Routes</a></li>
-
+                        <li><a href="adminLogin.html">Management</a></li>
                     </ul>
+                    <!--mobile div-->
                     <div id="nav-mobile" class="side-nav">
                         <ul >
                             <li><a href="#">Home</a></li>
                             <li><a href="BusRider.html">Bus Rider</a></li>
                             <li><a href="#">Driver</a></li>
-                            <li><a href="#">Management</a></li>  
+                            <li><a href="adminLogin.html">Management</a></li>  
                         </ul>
                     </div>
 
@@ -48,12 +48,14 @@ and open the template in the editor.
 
         
         <!--search box-->
-            <input id="findPlaces" class="controls" type="text" placeholder="Search Places">
+        
+            <input id="start" class="controls" type="text" placeholder="Type starting point">
+            <input id="end" class="controls" type="text" placeholder="Type Destination">
             <div id="MapCanvas" class="center" > </div>
             
         <!--  Scripts-->
-       <!--<script type='text/javascript' src='https://maps.googleapis.com/maps/api/js?v=3.exp'></script>-->
-        <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAfMvZQEeSmLPAXBUaRcjS4gfK43F9vucY&libraries&libraries=places"></script>
+        <!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAfMvZQEeSmLPAXBUaRcjS4gfK43F9vucY&libraries=places"></script>-->
         <script src="js/jquery-2.1.4.min.js"></script>
         <script src="js/materialize.js"></script>
         <script src="js/controller.js"></script>

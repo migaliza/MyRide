@@ -5,6 +5,26 @@
  *
  * Made By MaterializeCSS.com
  */
+
+
+
+.collapsible-body ul li{
+    padding: 0.05%;
+}
+html {
+  font-family: 'Roboto', 'Helvetica', sans-serif;
+}
+body{
+    background-color: #ffab91;
+}
+
+#login-page{
+    margin: 0 auto;
+    max-width: 30%;
+}
+
+
+
 .Hbutton{
     color:#fff59d;
     text-decoration: none;
@@ -76,7 +96,7 @@ html, body {
    height: 100%;
 }
 
-#findPlaces {
+#end {
   background-color: #fff;
   font-family: Roboto;
   font-size: 15px;
@@ -87,6 +107,61 @@ html, body {
   width: 300px;
 }
 
-#findPlaces:focus {
+#end:focus {
   border-color: #4d90fe;
 }
+
+
+#start {
+  background-color: #fff;
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: 300;
+  margin-left: 12px;
+  padding: 0 11px 0 13px;
+  text-overflow: ellipsis;
+  width: 300px;
+}
+
+#start:focus {
+  border-color: #4d90fe;
+}
+
+#adminDashSide ul{
+    list-style-type:none;
+  
+}
+
+#adminDashSide ul li{
+    display:inline;
+}
+
+#adminDashSide ul li a{
+    text-decoration:none;
+    
+ 
+    
+}
+#collapsibleValues ul li{
+    display:inline;
+}
+#collapsibleValues ul{
+    background-color: #BDBDBD;
+    list-style-type: none;
+    //padding:0;
+   // margin:0;
+}
+#collapsibleValues ul li a{
+    display:block;
+}
+
+
+ header, main, footer {
+      padding-left: 240px;
+    }
+
+    @media only screen and (max-width : 992px) {
+      header, main, footer {
+        padding-left: 0;
+      }
+    }
