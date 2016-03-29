@@ -7,8 +7,8 @@ switch ($cmd) {
 
 
         $latitude = $_GET['lat'];
-        $longitude = $_GET['lon'];
-        $Device = $_GET['device'];
+        $longitude = $_GET['long'];
+        $Device = $_GET['device_id'];
 
         include_once('GPSDevice.php');
         $GPSdevice = new GPSDevice();

@@ -16,7 +16,7 @@ class GPSDevice extends adb {
      * @param [[Sting]] $name
      */
     function add_GPS_Device($Device, $latitude, $longitude) {
-        $str_query = "INSERT INTO gpsdevice (Device_Id,Latitude,Longitude) VALUES('$Device','$latitude','$longitude') ON DUPLICATE KEY UPDATE Latitude='$latitude', Longitude='$longitude'";
+        $str_query = "INSERT INTO gpsdevice (Device_Id,long,lat) VALUES('$Device','$longitude','$latitude') ON DUPLICATE KEY UPDATE Latitude='$latitude', Longitude='$longitude'";
 
         if ($this->connect()) {
             $this->query($str_query);
