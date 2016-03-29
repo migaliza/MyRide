@@ -185,5 +185,9 @@ switch ($cmd) {
             echo '{"result":0,"message": "Nothing to display"}';
         }
         
+        break;
+    case 10:
+        include_once ('');
+        
 }
 ?>
