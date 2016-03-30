@@ -5,35 +5,18 @@
  */
 
 
-/*
- * function to send request
- * @param {type} directionsService
- * @param {type} directionsDisplay
- * @returns {undefined}
- */
-function sendRequest(u) {
-    //alert("here");
-    // alert(u);
-    console.log(u);
-    var obj = $.ajax({url: u, async: false});
-    var result = $.parseJSON(obj.responseText);
-    return result;
-}
+
 
 /* global google */
 
-var directionsDisplay = new google.maps.DirectionsRenderer();
-var directionsService = new google.maps.DirectionsService();
+
 $(document).ready(function () {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(initMap);
-
     }
     else {
         error("Geo Location is not supported");
     }
-
-
 });
 
 /*
@@ -43,6 +26,7 @@ $(document).ready(function () {
 
 
 var coords;
+
 function initMap(position) {
     var destination_place_id = null;
     var origin_place_id = null;
@@ -57,7 +41,9 @@ function initMap(position) {
             style: google.maps.NavigationControlStyle.SMALL
         }
     };
-
+    
+    var directionsDisplay = new google.maps.DirectionsRenderer();
+    var directionsService = new google.maps.DirectionsService();
     var map = new google.maps.Map(document.getElementById('MapCanvas'), options);
 
 
@@ -212,6 +198,19 @@ function initMap(position) {
             }
         });
     }
+}
+
+/*
+ * function to send request
+ * @param {type} directionsService
+ * @param {type} directionsDisplay
+ * @returns {undefined}
+ */
+function sendRequest(u) {
+    console.log(u);
+    var obj = $.ajax({url: u, async: false});
+    var result = $.parseJSON(obj.responseText);
+    return result;
 }
 
 
