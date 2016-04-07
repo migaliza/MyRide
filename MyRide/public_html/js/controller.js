@@ -104,7 +104,7 @@ function addBusStop() {
 
     var stringVal = "Bus_Stop_Name=" + name + "&Longitude=" + lon + "&Latitude=" + lat + "&RouteId=" + RouteId;
     var theUrl = "http://166.62.103.147/~ashesics/class2016/beatrice_migaliza/MyRide/public_html/PHP/request.php?cmd=5&" + stringVal;
-   
+
 
     var obj = sendRequest(theUrl);
 
@@ -128,7 +128,7 @@ function addNewGPSDevice() {
     var stringVal = "Device_Id=" + deviceId + "&Description=" + description;
 
     var theUrl = "http://166.62.103.147/~ashesics/class2016/beatrice_migaliza/MyRide/public_html/PHP/request.php?cmd=6&" + stringVal;
-    
+
     var obj = sendRequest(theUrl);
 
     if (obj.result == 1) {
@@ -139,38 +139,66 @@ function addNewGPSDevice() {
     }
 }
 
-
+/**
+ * function to add route
+ * @returns {undefined}
+ */
 function addRoute() {
     var routeCode = $("#Route_Code").val();
     var starLong = $("#StartRoute_longitude").val();
     var startLat = $("#StartRoute_Latitude").val();
     var endLong = $("#EndLongitude").val();
     var endLat = $("#EndLatitude").val();
-    
-    var stringVal ="Route_Code="+routeCode+"&StartRoute_longitude="+starLong+"&StartRoute_Latitude="+startLat+"&EndLongitude="+endLong+"&EndLatitude="+endLat;
-    var theUrl = "http://166.62.103.147/~ashesics/class2016/beatrice_migaliza/MyRide/public_html/PHP/request.php?cmd=8&"+stringVal;
-    
+
+    var stringVal = "Route_Code=" + routeCode + "&StartRoute_longitude=" + starLong + "&StartRoute_Latitude=" + startLat + "&EndLongitude=" + endLong + "&EndLatitude=" + endLat;
+    var theUrl = "http://166.62.103.147/~ashesics/class2016/beatrice_migaliza/MyRide/public_html/PHP/request.php?cmd=8&" + stringVal;
+
     var object = sendRequest(theUrl);
-    
-    if(object.result==1){
+
+    if (object.result == 1) {
         Materialize.toast(object.message, 4000, 'rounded');
     }
-    else{
+    else {
         Materialize.toast(object.message, 4000, 'rounded');
     }
-    
+
+}
+
+/**
+ * function to register the management
+ * @returns {undefined}
+ */
+function managementSignUp() {
+    var agence = $("#companyName").val();
+    var companyEmail = $("#email").val();
+    var phoneNumber = $("#phoneNumber").val();
+    var location = $("#location").val();
+
+    var stringVal = "AgencyName=" + agence + "&email=" + companyEmail + "&PhoneNumber=" + phoneNumber + "&location=" + location;
+    var theUrl = "http://166.62.103.147/~ashesics/class2016/beatrice_migaliza/MyRide/public_html/PHP/request.php?cmd=10&" + stringVal;
+    var object = sendRequest(theUrl);
+    //alert(theUrl);
+    if (object.result === 1) {
+        Materialize.toast(object.message, 20000, 'rounded');
+    }
+    else {
+        Materialize.toast(object.message, 4000, 'rounded');
+    }
 }
 
 
-$(document).ready(function(){
+/**
+ * function to display the route details
+ */
+$(document).ready(function () {
     var theUrl = "http://166.62.103.147/~ashesics/class2016/beatrice_migaliza/MyRide/public_html/PHP/request.php?cmd=9";
-    var object= sendRequest(theUrl);
-    
-    if(object.result ===1){
+    var object = sendRequest(theUrl);
+
+    if (object.result === 1) {
         //alert("here");
-        $.each(object.routes, function(i,routes){
+        $.each(object.routes, function (i, routes) {
             var optionElement = document.createElement('option');
-            optionElement.value=routes.Route_Code;
+            optionElement.value = routes.Route_Code;
             optionElement.innerHTML = routes.Route_Code;
             $("#routecode").append(optionElement);
             //var routeElement = $('<select></select>');
@@ -178,7 +206,60 @@ $(document).ready(function(){
             //$("#routecode").append('<option value="'+i+'">'+routes.Route_Code+'</option>');
         });
     }
-    else{
-       Materialize.toast(object.message, 4000, 'rounded');
+    else {
+        Materialize.toast(object.message, 4000, 'rounded');
     }
 });
+
+/**
+ * function to validate email input
+ * @param {type} e
+ * @returns {undefined}
+ */
+function validateInput(e) {
+    var email = document.SignUpForm.email;
+    if (email.value === " ") {
+        e.preventDefault();
+    }
+    if (email.value.indexOf("@", 0) < 0) {
+        e.preventDefault();
+    }
+    if (email.value.indexOf(".", 0) < 0) {
+        e.preventDefault();
+    }
+}
+
+$("#email").bind("input propertychange", function () {
+    if (this.value.length === 0) {
+        Materialize.toast("You have not entered an email address", 4000, 'rounded');
+    }
+    if ((this.value.indexOf("@", 0) < 0) || (this.value.indexOf(".", 0) < 0)) {
+        Materialize.toast("You entered invalid email address", 4000, 'rounded');
+    }
+});
+
+
+/**
+ * function to login the bus management
+ * @returns {undefined}
+ */
+function managementLogin() {
+    var email = $("#email").val();
+    var password = $("#password").val();
+
+    var stringVal = "email=" + email + "&Assigned_Pass=" + password;
+    var theUrl = "http://166.62.103.147/~ashesics/class2016/beatrice_migaliza/MyRide/public_html/PHP/request.php?cmd=11&" +stringVal;
+
+    var object = sendRequest(theUrl);
+
+    if (object.result === 1) {
+        //window.location="/";
+        window.location= "/DashBoard.html";
+    
+    }
+    else {
+        Materialize.toast(object.message, 4000, 'rounded');
+    }
+
+
+}

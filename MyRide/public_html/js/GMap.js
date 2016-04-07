@@ -34,7 +34,7 @@ function initMap(position) {
 
     coords = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
     var options = {
-        zoom: 12,
+        zoom: 17,
         center: coords,
         scrollwheel: true,
         mapTypeControlOptions: {
@@ -69,18 +69,24 @@ function initMap(position) {
     function traceBusOnMap() {
         var theURL = "http://166.62.103.147/~ashesics/class2016/beatrice_migaliza/MyRide/public_html/PHP/request.php?cmd=2";
         var obj = sendRequest(theURL);
+        
         if (obj.result === 1) {
             $.each(obj.coordinates, function (i, coordinates) {
                 var bus = coordinates.Device_Id;
                 var longitude = coordinates.long;
                 var latitude = coordinates.lat;
-                var info = '<div id="content"><a href="#">' + bus + '</a></div>';
-
+                
+                var info= '<div id="content">'+'<div id="siteNotice">'+'<div class="row">'+'<p> <b>Bus Name: '+bus
+                        +'</b></p><p><b> From: '+'</b></p><p><b>To: '+'</b><p><b>Next Bus Stop: '+'</b></p><p><b>Capacity: '+'</b></p></div>'+'</div></div>';
+              
+              //var info = '<div id="content">'+'<div id = siteNotice>'+'<ul><il><a href="#infoModal" class="modal-trigger">View Bus Info</a></li><li><a href="">Update Bus Info</a></li>'+'</div>'+
+                      '<!--modal to view bus info--><div id="infoModal" class=modal><div class="modal-content">'+'<h4>'+bus+
+                      '</h4>'+''+'</div><div class="modal-footer"><a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a></div>'+'</div>';
                 var infowindow = new google.maps.InfoWindow({
                     content: info
                 });
-                //var marker;
-                var busIcon = new google.maps.MarkerImage("images/logo.png", null, null, null, new google.maps.Size(40, 40));
+        
+                var busIcon = new google.maps.MarkerImage("images/logo.png", null, null, null, new google.maps.Size(20, 20));
                
 
                 var marker = new google.maps.Marker({
@@ -100,7 +106,35 @@ function initMap(position) {
     }
 
     traceBusOnMap();
-
+    
+    function displayBusStops(){
+        var theUrl = "http://166.62.103.147/~ashesics/class2016/beatrice_migaliza/MyRide/public_html/PHP/request.php?cmd=5";
+        var object = sendRequest(theUrl);
+        
+        if(object.result===1){
+            $.each(object.busStops, function(i,busStops){
+                var latitude = busStops.Latitude;
+                var longitude = busStops.Longitude;
+                var stopName = busStops.Bus_Stop_Name;
+                var busNames = busStops.Bus_Name;
+                
+                var busIcon = new google.maps.MarkerImage("images/busStopIcon.ico",null,null,null,new google.maps.Size(30,30));
+                
+                var marker = new google.maps.Marker({
+                   map:map,
+                   position: new google.maps.LatLng(latitude,longitude),
+                   icon: busIcon,
+                   title: stopName
+                });
+                
+                        
+            });
+                
+            
+        }
+    }
+    
+    displayBusStops();
 
     var directionsService = new google.maps.DirectionsService;
     var directionsDisplay = new google.maps.DirectionsRenderer;
@@ -213,9 +247,9 @@ function sendRequest(u) {
     return result;
 }
 
-
-
-
-
-
-
+/**
+ * function to trigger the modal form
+ */
+$(document).ready(function(){
+    $('.modal-trigger').leanModal();
+});

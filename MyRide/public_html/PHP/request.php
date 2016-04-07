@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 $cmd = $_REQUEST['cmd'];
 switch ($cmd) {
 
@@ -95,13 +95,18 @@ switch ($cmd) {
         include_once('busStops.php');
         $busStop = new busStops();
         
-        $name = $_REQUEST['Bus_Stop_Name'];
-        $lon= $_REQUEST['Longitude'];
-        $lat = $_REQUEST['Latitude'];
-        $RouteId = $_REQUEST['RouteId'];
         
-        if($busStop->add_new_busStop($name,$lon,$lat,$RouteId)){
-            echo '{"result": 1 "message": "SUCCESSFULLY ADDED"}';
+        if($busStop->fetch_Bus_Stops()){
+            $row = $busStop->fetch();
+            echo '{"result":1,"busStops":[';
+            while($row){
+                echo json_encode($row);
+                $row = $busStop->fetch();
+                if($row){
+                    echo ",";
+                }
+            }
+            echo "]}";
         }
         else{
             echo '{"result":0 "message": "UNSUCCESFULL"}';
@@ -187,7 +192,50 @@ switch ($cmd) {
         
         break;
     case 10:
-        include_once ('');
+        include_once ('administrator.php');
+        $admnistrator = new administrator();
         
+        $agence= $_REQUEST['AgencyName'];
+        $companyEmail= $_REQUEST['email'];
+        $phoneNumber = $_REQUEST['PhoneNumber'];
+        $location = $_REQUEST['location'];
+        
+        $randomPass = str_shuffle("abcd7MSDjke");
+        
+        if($admnistrator->Management_signUP($agence,$companyEmail,$phoneNumber,$location,$randomPass)){
+            echo '{"result":1,"message":"SUCCESSFULLY SIGNED UP"}';
+        }
+        else{
+            echo '{"result":0, "message":"NOT SUCCESSFUL"}';
+        }
+        break;
+        
+        
+    case 11:
+        include_once('administrator.php');
+        $administrator = new administrator();
+        
+        if(!empty($_REQUEST['email']) && !empty($_REQUEST['Assigned_Pass'])){
+            $email = $_REQUEST['email'];
+            $password = $_REQUEST['Assigned_Pass'];
+            
+            if($administrator->management_login($email,$password)){
+                $row=$administrator->fetch();
+                if($row){
+                    echo '{"result":1,"message": "Logged In"}';
+                    $agencyName = $_SESSION['AgencyName'];
+
+                }
+            }
+            else{
+                echo '{"result":0, "message": "UNSUCCESSFULL"}';
+            }
+            
+        }
+        else{
+                echo '{"result":0, "message": "UNSUCCESSFULL"}';
+            }
+        
+        break;
 }
 ?>

@@ -35,24 +35,24 @@ and open the template in the editor.
 
         <div id="login-page" class="row">
             <div class="col s12 z-depth-6 card-panel">
-                <form class="login-form">
+                <form class="login-form" method="POST">
                     <div class="row">
                         <div class="input-field col s12 center">
-                            <img src="images/logo.PNG" alt="" class="responsive-img valign profile-image-login">
+                            <img src="images/logo.png" alt="" class="responsive-img valign profile-image-login" height="180" width="180">
                             <p class="center login-form-text"> Intelligence Transit System in Ghana</p>
                         </div>
                     </div>
                     <div class="row margin">
                         <div class="input-field col s12">
                             <i class="mdi-social-person-outline prefix"></i>
-                            <input class="validate" id="email" type="email">
+                            <input class="validate" id="email" type="email" name="email">
                             <label for="email" data-error="wrong" data-success="right" class="center-align">Email</label>
                         </div>
                     </div>
                     <div class="row margin">
                         <div class="input-field col s12">
                             <i class="mdi-action-lock-outline prefix"></i>
-                            <input id="password" type="password">
+                            <input id="password" type="password" name="Assigned_Pass">
                             <label for="password">Password</label>
                         </div>
                     </div>
@@ -64,7 +64,9 @@ and open the template in the editor.
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
-                            <a href="adminLogin.html" class="btn waves-effect waves-light col s12">Login</a>
+                            <button class="btn waves-effect waves-light" type="submit"  onclick="managementLogin()">Login
+                                <i class="material-icons right">send</i>
+                            </button>
                         </div>
                     </div>
                     <div class="row">
